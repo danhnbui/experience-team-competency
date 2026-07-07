@@ -1,0 +1,15 @@
+{
+  "roleOptions": ["Product Designer", "User Researcher"],
+  "levelOptions": ["Associate", "Middle", "Senior", "Principal", "Lead (people mng.)"],
+  "profiles": {
+    "Product Designer|Associate": {"title": "Product Designer I", "cur": [2,2,2,2, 3,3,2,2,3, 2,2,1,2, 2,2, 2,1,1,1]},
+    "Product Designer|Middle": {"title": "Product Designer II", "cur": [3,3,3,3, 4,4,3,3,4, 2,2,2,3, 3,3, 3,2,2,1]},
+    "Product Designer|Senior": {"title": "Senior Product Designer I", "cur": [4,4,4,4, 5,4,4,4,5, 3,3,3,4, 4,4, 4,3,3,2]},
+    "Product Designer|Principal": {"title": "Principal Product Designer (IC)", "cur": [5,5,5,5, 5,5,5,5,5, 4,4,4,4, 5,5, 4,3,5,2]},
+    "Product Designer|Lead (people mng.)": {"title": "Design Lead", "cur": [4,4,4,4, 5,4,4,3,4, 4,4,3,4, 4,4, 4,4,4,4]},
+    "User Researcher|Associate": {"title": "Associate User Researcher", "cur": [2,2,2,2, 2,1,1,2,1, 3,3,2,3, 2,2, 2,1,1,1]},
+    "User Researcher|Middle": {"title": "User Researcher", "cur": [3,3,2,2, 2,1,1,2,1, 4,4,3,4, 3,2, 3,2,2,1]},
+    "User Researcher|Senior": {"title": "Senior User Researcher", "cur": [4,4,3,3, 3,2,2,3,2, 5,5,4,5, 4,3, 4,3,3,2]},
+    "User Researcher|Principal": {"title": "Principal User Researcher (IC)", "cur": [4,5,4,4, 3,2,2,3,2, 5,5,5,5, 4,4, 4,3,5,2]}
+  }
+}

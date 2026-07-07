@@ -12,7 +12,7 @@
     {"name": "Design", "color": "#eab308", "start": 4, "end": 8},
     {"name": "User", "color": "#8b5cf6", "start": 9, "end": 12},
     {"name": "Tech", "color": "#10b981", "start": 13, "end": 14},
-    {"name": "Influence", "color": "#006fad", "start": 15, "end": 18}
+    {"name": "Influence", "color": "#f43f5e", "start": 15, "end": 18}
   ],
   "skills": [
     {"order":1,"skill":"Domain knowledge","domain":"Product","track":"Universal","definition":"How well you understand your squad's slice of GHN logistics: the operations, actors, and constraints behind the screens.","summary":"Do you understand how your part of the delivery operation actually works?","L":["Knows core logistics terms but needs guidance on how the squad's area works.|understands what COD means but asks how the cash reconciliation flow works.","Works independently within the squad's area.|handles pickup-scheduling work without needing the operating rules re-explained.","Fluent in the area and connects it to nearby operations.|sees how a change to pickup windows affects hub sorting downstream.","Teaches the domain to others and catches flawed assumptions in review.|flags that a proposed flow ignores how rural zones batch deliveries.","Defines how the team builds and keeps its domain knowledge current.|sets up the shared reference the whole team uses to learn the operation."]},

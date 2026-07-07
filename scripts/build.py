@@ -24,18 +24,21 @@ TEMPLATE = r'''<!DOCTYPE html>
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg-app);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:24px;letter-spacing:.1px;}
 .wrap{max-width:760px;margin:0 auto;padding:24px 20px 64px;}
-.head{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);padding-bottom:16px;}
+.head{display:flex;align-items:center;gap:12px;padding-bottom:16px;}
 .dot{width:12px;height:12px;border-radius:3px;background:var(--primary);}
 h1{font-size:26px;line-height:34px;font-weight:800;letter-spacing:.2px;margin:0;}
 .filters{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0 10px;align-items:flex-end;}
 .fld{display:flex;flex-direction:column;gap:8px;}
 .fld label{font:700 12px/20px Inter;letter-spacing:.1px;}
-.fld select{height:36px;min-width:210px;padding:0 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg-app);color:var(--text);font:400 14px/24px Inter;cursor:pointer;}
+.fld select{height:36px;min-width:210px;padding:0 38px 0 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg-app);color:var(--text);font:400 14px/24px Inter;cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2352525b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
 .fld select:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 2px var(--focus);}
 .domlegend{display:flex;flex-wrap:wrap;gap:14px;margin:4px 0 4px;}
 .domlegend span{display:inline-flex;align-items:center;gap:6px;font:700 12px/18px Inter;}
 .domlegend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
 .hint{color:var(--muted);font-size:12px;line-height:18px;margin:6px 0 0;}
+.hints{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0 0;}
+.hintitem{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font:500 12px/18px Inter;}
+.hicon{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 .chartwrap{position:relative;margin-top:4px;}
 .tip{position:absolute;display:none;pointer-events:none;width:250px;background:var(--bg-app);border:1px solid var(--border);border-radius:10px;padding:0;overflow:hidden;box-shadow:0 10px 15px -3px rgba(16,24,40,.12),0 4px 6px -4px rgba(16,24,40,.12);z-index:30;}
 .tiphead{padding:10px 12px 8px;}
@@ -45,7 +48,7 @@ h1{font-size:26px;line-height:34px;font-weight:800;letter-spacing:.2px;margin:0;
 .bars{display:flex;align-items:flex-end;gap:3px;height:26px;margin-top:8px;}
 .bar{flex:1;border-radius:2px 2px 0 0;}
 .tipcur{font:600 11px/15px Inter;padding:8px 12px;color:#fff;}
-.detail{margin-top:20px;border-top:1px solid var(--border);padding-top:18px;}
+.detail{margin-top:20px;padding-top:18px;}
 .dhead{display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .dtitle{font:800 20px/26px Inter;letter-spacing:.2px;margin:0;}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font:700 11px/16px Inter;}
@@ -54,25 +57,23 @@ h1{font-size:26px;line-height:34px;font-weight:800;letter-spacing:.2px;margin:0;
 .clear{background:none;border:none;color:var(--primary);font:600 13px/18px Inter;cursor:pointer;padding:0;}
 .dcur{display:flex;align-items:center;gap:12px;margin:14px 0;padding:10px 12px;border-radius:8px;color:#fff;}
 .dcur .bars{height:22px;width:80px;margin:0;}
-.lv{padding:12px 0;border-bottom:1px solid var(--border);}
-.lv:last-child{border-bottom:none;}
-.lv.on{margin-left:calc(-1 * ((100vw - 100%) / 2));} /* placeholder, overridden below */
-.lvtop{display:flex;align-items:baseline;gap:10px;}
+.lv{padding:12px 0;}
+.lvtop{display:flex;align-items:center;gap:10px;}
+.lvbars{margin:6px 0 0;}
+.lvbars .bars{width:66px;height:18px;margin:0;gap:2px;}
 .lvnum{font:800 12px/18px Inter;min-width:74px;}
 .lvname{font:700 13px/20px Inter;}
 .lvsent{font-size:13.5px;line-height:21px;margin:3px 0 0 84px;}
 .lvex{font-size:12.5px;line-height:19px;color:var(--muted);margin:3px 0 0 84px;}
-.lvon{border-radius:10px;padding:12px 14px;border-bottom:none;}
-.domgroup{padding:10px 0;border-bottom:1px solid var(--border);}
-.domgroup:last-child{border-bottom:none;}
+.lvon{border-radius:10px;padding:12px 14px;margin:0 -14px;}
+.domgroup{padding:10px 0;}
 .domname{display:inline-flex;align-items:center;gap:6px;font:800 13px/20px Inter;}
 .domdot{width:11px;height:11px;border-radius:3px;display:inline-block;}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
 .chip{font:600 11px/16px Inter;padding:5px 11px;border:1px solid var(--border);background:var(--bg-app);color:var(--text);border-radius:999px;cursor:pointer;transition:border-color .12s,color .12s;}
 .chip:hover{border-color:var(--primary);color:var(--primary);}
-.foot{color:var(--placeholder);font-size:11px;margin-top:28px;line-height:18px;}
-.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg-app);font:600 13px/18px Inter;padding:10px 16px;border-radius:999px;box-shadow:0 10px 15px -3px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast{position:fixed;left:50%;top:28px;transform:translateX(-50%) translateY(-20px);background:var(--text);color:var(--bg-app);font:600 13px/18px Inter;padding:10px 16px;border-radius:999px;box-shadow:0 10px 15px -3px rgba(0,0,0,.2);opacity:0;pointer-events:none;cursor:pointer;transition:opacity .2s,transform .2s;z-index:50;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto;}
 svg text{cursor:pointer;}
 </style>
 </head>
@@ -84,10 +85,13 @@ svg text{cursor:pointer;}
     <div class="fld"><label for="fLevel">Level</label><select id="fLevel"></select></div>
   </div>
   <div class="domlegend" id="domlegend"></div>
-  <p class="hint">Hover a skill for a quick look. Click to select it and see the full detail below (double-click to clear).</p>
+  <div class="hints">
+    <span class="hintitem"><svg class="hicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg>Hover for a quick look</span>
+    <span class="hintitem"><svg class="hicon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 9 5 12 1.774-5.226L21 14z"/><path d="m16.071 16.071 4.243 4.243"/><path d="m7.188 2.239.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656-2.12 2.122"/></svg>Click to select &amp; see full detail</span>
+    <span class="hintitem"><svg class="hicon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>Click again to clear</span>
+  </div>
   <div class="chartwrap"><div id="chart"></div><div id="tip" class="tip"></div></div>
   <section class="detail" id="detail"></section>
-  <div class="foot" id="foot"></div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -98,7 +102,7 @@ const LEVELS=DATA.levels, LMEAN=DATA.levelMeaning, DOMAINS=DATA.domains;
 const domColor={}; DOMAINS.forEach(d=>domColor[d.name]=d.color);
 const PROF=DATA.profiles, ROLE_OPTS=DATA.roleOptions, LEVEL_OPTS=DATA.levelOptions;
 const cx=380,cy=380,R=205,rIn=34,slice=360/N,ring=(R-rIn)/MAX;
-let fRole=ROLE_OPTS[0], fLevel='Senior', selected=null, clickTimer=null;
+let fRole=ROLE_OPTS[0], fLevel='Senior', selected=null;
 
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function pol(r,deg){const a=deg*Math.PI/180;return [cx+r*Math.sin(a),cy-r*Math.cos(a)];}
@@ -125,23 +129,27 @@ function drawChart(){
  for(let k=0;k<=MAX;k++){const rr=rIn+k*ring; s+=`<circle cx="${cx}" cy="${cy}" r="${rr.toFixed(1)}" fill="none" stroke="${grid}" stroke-width="${(k===0||k===MAX)?1.6:1}" opacity="0.85"/>`;}
  for(let i=0;i<N;i++){const ang=i*slice-slice/2,p1=pol(rIn,ang),p2=pol(R,ang); s+=`<line x1="${p1[0].toFixed(1)}" y1="${p1[1].toFixed(1)}" x2="${p2[0].toFixed(1)}" y2="${p2[1].toFixed(1)}" stroke="${grid}" stroke-width="1" opacity="0.7"/>`;}
  s+=`<circle cx="${cx}" cy="${cy}" r="${rIn}" fill="${cssel()}" stroke="${grid}" stroke-width="1.6"/>`;
- DOMAINS.forEach(d=>{const a1=d.start*slice-slice/2,a2=d.end*slice+slice/2; s+=`<path d="${annular(R+2,R+9,a1,a2)}" fill="${d.color}" opacity="0.9"/>`;});
+ DOMAINS.forEach(d=>{const a1=d.start*slice-slice/2,a2=d.end*slice+slice/2; s+=`<path class="dband" data-dom="${d.name}" d="${annular(R+2,R+9,a1,a2)}" fill="${d.color}" opacity="0.9" style="transition:opacity .12s"/>`;});
  [0,4,9,13,15].forEach(k=>{const ang=k*slice-slice/2,p1=pol(rIn,ang),p2=pol(R+9,ang); s+=`<line x1="${p1[0].toFixed(1)}" y1="${p1[1].toFixed(1)}" x2="${p2[0].toFixed(1)}" y2="${p2[1].toFixed(1)}" stroke="${cssbg()}" stroke-width="3"/>`;});
  if(selected!==null){const a1=selected*slice-slice/2,a2=selected*slice+slice/2; s+=`<path d="${annular(rIn,R,a1,a2)}" fill="none" stroke="${domColor[SK[selected].domain]}" stroke-width="3" stroke-linejoin="round"/>`;}
  for(let i=0;i<N;i++){const ang=i*slice,lp=pol(R+14,ang); let rot=ang-90,anc='start'; if(rot>90&&rot<270){rot+=180;anc='end';}
    const on=selected===i, col=on?domColor[SK[i].domain]:text, lines=splitLabel(SK[i].skill);
-   s+=`<g class="lblg" data-i="${i}" style="cursor:pointer;opacity:${selected===null?1:(on?1:0.28)};transition:opacity .12s"><text x="${lp[0].toFixed(1)}" y="${lp[1].toFixed(1)}" transform="rotate(${rot.toFixed(1)} ${lp[0].toFixed(1)} ${lp[1].toFixed(1)})" text-anchor="${anc}" dominant-baseline="middle" font-size="12" font-weight="${on?800:600}" fill="${col}">`;
+   s+=`<g class="lblg" data-i="${i}" style="cursor:pointer;opacity:${selected===null?1:(on?1:0.28)};transition:opacity .12s"><text x="${lp[0].toFixed(1)}" y="${lp[1].toFixed(1)}" transform="rotate(${rot.toFixed(1)} ${lp[0].toFixed(1)} ${lp[1].toFixed(1)})" text-anchor="${anc}" dominant-baseline="middle" font-size="16" font-weight="${on?800:600}" fill="${col}">`;
    if(lines.length===1){s+=`<tspan x="${lp[0].toFixed(1)}">${esc(lines[0])}</tspan>`;}
    else{s+=`<tspan x="${lp[0].toFixed(1)}" dy="-0.35em">${esc(lines[0])}</tspan><tspan x="${lp[0].toFixed(1)}" dy="1.15em">${esc(lines[1])}</tspan>`;}
    s+=`</text></g>`;}
  host.innerHTML=`<svg viewBox="0 0 760 760" width="100%" style="max-width:600px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
  attachHover();
+ setHover(null);
 }
 function cssbg(){return getComputedStyle(document.documentElement).getPropertyValue('--bg-app').trim();}
 function cssel(){return getComputedStyle(document.documentElement).getPropertyValue('--bg-elevated').trim();}
 
-function setHover(i){document.querySelectorAll('#chart .skg, #chart .lblg').forEach(x=>{const j=+x.dataset.i;
-  x.style.opacity = i!==null ? (j===i?'1':'0.15') : (selected===null?'1':(j===selected?'1':'0.28'));});}
+function setHover(i){const idx=(i!==null)?i:selected, dom=idx===null?null:SK[idx].domain;
+  document.querySelectorAll('#chart .skg, #chart .lblg').forEach(x=>{const j=+x.dataset.i;
+    x.style.opacity = i!==null ? (j===i?'1':'0.15') : (selected===null?'1':(j===selected?'1':'0.28'));});
+  document.querySelectorAll('#chart .dband').forEach(b=>{b.style.opacity = dom===null?'0.9':(b.dataset.dom===dom?'1':'0.22');});
+  document.querySelectorAll('#domlegend span').forEach(sp=>{sp.style.opacity = dom===null?'1':(sp.dataset.dom===dom?'1':'0.3');});}
 function attachHover(){const tip=document.getElementById('tip'), wrap=document.querySelector('.chartwrap');
  function showTip(i){const sk=SK[i],prof=profile(),cur=prof?prof.cur[i]:null,dcol=domColor[sk.domain];
    let h=`<div class="tiphead"><div class="tiptitle">${esc(sk.skill)}</div><div class="tipdom" style="color:${dcol}">${sk.domain}</div><div class="tipsum">${esc(sk.summary)}</div>${barsHTML(cur,dcol)}</div>`;
@@ -154,17 +162,17 @@ function attachHover(){const tip=document.getElementById('tip'), wrap=document.q
    g.addEventListener('mouseenter',()=>{setHover(i);showTip(i);});
    g.addEventListener('mousemove',moveTip);
    g.addEventListener('mouseleave',()=>{setHover(null);tip.style.display='none';});
-   g.addEventListener('click',()=>{ if(clickTimer){return;} clickTimer=setTimeout(()=>{clickTimer=null;selectSkill(i);},220); });
-   g.addEventListener('dblclick',()=>{ if(clickTimer){clearTimeout(clickTimer);clickTimer=null;} deselect(); });
+   g.addEventListener('click',()=>{ if(selected===i){deselect();} else {selectSkill(i);} });
  });
 }
 window.selectSkill=function(i){selected=i;drawChart();renderDetail();
  const d=document.getElementById('detail'); const r=d.getBoundingClientRect();
- if(r.top>window.innerHeight-90||r.bottom<60){showToast('Scroll down for details \u2193');}};
+ if(r.top>window.innerHeight-90||r.bottom<60){showToast('Tap to view details \u2193');}};
 function deselect(){selected=null;drawChart();renderDetail();}
 let toastT=null;
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
  if(toastT)clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2600);}
+function dismissToast(){const t=document.getElementById('toast');t.classList.remove('show');if(toastT)clearTimeout(toastT);}
 
 function renderDetail(){const d=document.getElementById('detail');
  if(selected===null){let h=`<h2 class="dtitle" style="font-size:16px;line-height:24px">Domains &amp; criteria</h2><p class="hint">The 19 skills grouped by domain. Hover the radar for a quick look, or pick a skill here.</p>`;
@@ -177,7 +185,7 @@ function renderDetail(){const d=document.getElementById('detail');
  h+=`<p class="ddef">${esc(sk.definition)}</p><p class="dsum">${esc(sk.summary)}</p>`;
  if(cur){h+=`<div class="dcur" style="background:${dcol}">${barsHTML(cur,'#ffffff',22)}<div><div style="font-weight:800">Current for ${esc(prof.title)}</div><div style="font-size:12px;opacity:.92">Level ${cur} of 5 &middot; ${LEVELS[cur-1]}</div></div></div>`;}
  for(let k=0;k<MAX;k++){const on=cur&&(k+1)===cur;
-   h+=`<div class="lv ${on?'lvon':''}" style="${on?`background:${dcol}1f`:''}"><div class="lvtop"><span class="lvnum" style="color:${dcol}">LEVEL ${k+1}</span><span class="lvname">${LEVELS[k]}</span></div>`;
+   h+=`<div class="lv ${on?'lvon':''}" style="${on?`background:${dcol}1f`:''}"><div class="lvtop"><span class="lvnum" style="color:${dcol}">LEVEL ${k+1}</span><span class="lvname">${LEVELS[k]}</span></div><div class="lvbars">${barsHTML(k+1,dcol,18)}</div>`;
    h+=`<div class="lvsent">${esc(sentence(selected,k))}</div>`;
    const ex=example(selected,k); if(ex)h+=`<div class="lvex"><b>GHN example:</b> ${esc(ex)}</div>`;
    h+=`</div>`;}
@@ -191,8 +199,8 @@ function onLevel(){fLevel=document.getElementById('fLevel').value;selected=null;
 function build(){
  fillSelect('fRole',ROLE_OPTS,fRole);refreshLevels();
  document.getElementById('fRole').onchange=onRole;document.getElementById('fLevel').onchange=onLevel;
- document.getElementById('domlegend').innerHTML=DOMAINS.map(d=>`<span style="color:${d.color}"><i style="background:${d.color}"></i>${d.name}</span>`).join('');
- document.getElementById('foot').innerHTML='5 domains, 19 skills, scale 1 to 5. Content is authored in Notion and generated into this dashboard. Styled with the GHN design system.';
+ document.getElementById('domlegend').innerHTML=DOMAINS.map(d=>`<span data-dom="${d.name}" style="color:${d.color};transition:opacity .12s"><i style="background:${d.color}"></i>${d.name}</span>`).join('');
+ document.getElementById('toast').onclick=()=>{document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'});dismissToast();};
  drawChart();renderDetail();}
 build();
 </script>

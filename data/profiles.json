@@ -11,5 +11,9 @@
     "User Researcher|Middle": {"title": "User Researcher", "cur": [3,3,2,2, 2,1,1,2,1, 4,4,3,4, 3,2, 3,2,2,1]},
     "User Researcher|Senior": {"title": "Senior User Researcher", "cur": [4,4,3,3, 3,2,2,3,2, 5,5,4,5, 4,3, 4,3,3,2]},
     "User Researcher|Principal": {"title": "Principal User Researcher (IC)", "cur": [4,5,4,4, 3,2,2,3,2, 5,5,5,5, 4,4, 4,3,5,2]}
-  }
+  },
+  "members": [
+    {"name": "Định Thị Mai Thảo", "role": "Product Designer", "level": "Middle", "quarter": "Q3 2026", "source": "seed", "snapshot": "https://app.notion.com/p/3964ba0ac99a81159f23dcceeeb836a1", "cur": [3,3,3,3, 4,4,3,3,4, 2,2,2,3, 3,3, 3,2,2,1], "target": [4,4,4,4, 5,4,4,4,5, 3,3,3,4, 4,4, 4,3,3,2]},
+    {"name": "Thái Bảo Duy Lâm", "role": "Product Designer", "level": "Senior", "quarter": "Q3 2026", "source": "seed", "snapshot": "https://app.notion.com/p/3964ba0ac99a816e8a0ecb1926731245", "cur": [4,4,4,4, 5,4,4,4,5, 3,3,3,4, 4,4, 4,3,3,2], "target": [5,5,5,5, 5,5,5,5,5, 4,4,4,4, 5,5, 4,3,5,2]}
+  ]
 }
